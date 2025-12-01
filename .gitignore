@@ -18,6 +18,9 @@
 .env.test.local
 .env.production.local
 
+# temporarily ignore assets for initial push
+public/assets/
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
