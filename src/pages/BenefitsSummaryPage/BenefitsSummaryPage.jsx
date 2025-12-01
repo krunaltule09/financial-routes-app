@@ -131,6 +131,22 @@ const BenefitsSummaryPage = () => {
         </div>
       </motion.main>
       
+      <motion.img
+        src="/assets/welcome1.svg"
+        alt=""
+        aria-hidden="true"
+        className={styles.bgImage}
+        initial={{ opacity: 0, scale: 1.15, x: 80, y: 50 }}
+        animate={{
+          opacity: 0.9,
+          scale: [1.15, 1.05, 1.15],
+          x: [80, 20, 80],
+          y: [50, 10, 50],
+        }}
+        transition={{ duration: 10, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror' }}
+      />
+      <div className={styles.overlay}></div>
+
       {/* Background placeholder */}
       <div className={styles.backgroundPlaceholder}></div>
     </div>

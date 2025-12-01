@@ -7,7 +7,8 @@ import {
   DSCRTrendPage,
   BenefitsSummaryPage,
   CovenantMonitoringPage,
-  LoanServicePage
+  LoanServicePage,
+  WelcomeHomePage
 } from '../pages';
 
 // Define routes configuration
@@ -26,7 +27,7 @@ const routes = [
   },
   {
     path: '/welcome',
-    element: <WelcomePage />,
+    element: <WelcomeHomePage />,
   },
   {
     path: '/dscr-trend',

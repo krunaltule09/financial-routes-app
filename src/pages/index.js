@@ -6,3 +6,4 @@ export { default as DSCRTrendPage } from './DSCRTrendPage';
 export { default as BenefitsSummaryPage } from './BenefitsSummaryPage';
 export { default as CovenantMonitoringPage } from './CovenantMonitoringPage';
 export { default as LoanServicePage } from './LoanServicePage';
+export { default as WelcomeHomePage } from './WelcomeHomePage';

@@ -19,6 +19,8 @@
   box-sizing: border-box;
   flex: 1;
   height: calc(100vh - 80px);
+  position: relative;
+  z-index: 2;
 }
 
 /* Sidebar Styles */
@@ -107,6 +109,29 @@
   height: 100%;
   z-index: -1;
   background-color: #000000;
+}
+
+.bgImage {
+  position: absolute;
+  inset: -10% -10% -10% -10%;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.75;
+  filter: blur(2px) saturate(1.15);
+  transform-origin: 85% 85%;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 60% at 90% 85%, rgba(255, 153, 0, 0.55) 0%, rgba(255, 153, 0, 0.0) 55%),
+    linear-gradient(100deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 /* Responsive Styles */
