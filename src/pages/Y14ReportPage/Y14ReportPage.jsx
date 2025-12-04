@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components';
 import SidebarItem from '../../components/SidebarItem/SidebarItem';
+import { Snackbar, Alert } from '@mui/material';
+// SSE Status removed
 import styles from './Y14ReportPage.module.css';
 
 /**
@@ -10,6 +12,42 @@ import styles from './Y14ReportPage.module.css';
  */
 const Y14ReportPage = () => {
   const navigate = useNavigate();
+  const [navigationEvent, setNavigationEvent] = useState(null);
+  const [notification, setNotification] = useState({ open: false, message: '', severity: 'info' });
+  
+  // Listen for navigation events
+  useEffect(() => {
+    const handleSSENavigation = (event) => {
+      const { sourceAppId, route, timestamp, data } = event.detail;
+      
+      if (route === '/y14-report/large') {
+        setNavigationEvent({
+          sourceAppId,
+          timestamp: new Date(timestamp).toLocaleTimeString(),
+          referrer: data?.referrer || 'unknown',
+          action: data?.action || 'NAVIGATE'
+        });
+        
+        setNotification({
+          open: true,
+          message: `Navigated from ${sourceAppId || 'unknown'} app`,
+          severity: 'info'
+        });
+      }
+    };
+    
+    // Add event listener
+    window.addEventListener('sse-navigation', handleSSENavigation);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('sse-navigation', handleSSENavigation);
+    };
+  }, []);
+  
+  const handleCloseNotification = () => {
+    setNotification({ ...notification, open: false });
+  };
   
   // State for progress and visible cards
   const [progress, setProgress] = useState(0);
@@ -235,6 +273,22 @@ const Y14ReportPage = () => {
       
       {/* Background placeholder */}
       <div className={styles.backgroundPlaceholder}></div>
+      
+      {/* Navigation info removed */}
+      
+      {/* SSE Status removed */}
+      
+      {/* Notification */}
+      <Snackbar 
+        open={notification.open} 
+        autoHideDuration={6000} 
+        onClose={handleCloseNotification}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

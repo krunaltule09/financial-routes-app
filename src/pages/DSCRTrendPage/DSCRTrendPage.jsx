@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components';
 import SidebarItem from '../../components/SidebarItem/SidebarItem';
+import { Snackbar, Alert } from '@mui/material';
+// SSE Status removed
 import styles from './DSCRTrendPage.module.css';
 
 /**
@@ -11,6 +13,42 @@ import styles from './DSCRTrendPage.module.css';
 const DSCRTrendPage = () => {
   const navigate = useNavigate();
   const [activeTabIndex, setActiveTabIndex] = useState(2); // Operational Docx Scan is active by default
+  const [navigationEvent, setNavigationEvent] = useState(null);
+  const [notification, setNotification] = useState({ open: false, message: '', severity: 'info' });
+  
+  // Listen for navigation events
+  useEffect(() => {
+    const handleSSENavigation = (event) => {
+      const { sourceAppId, route, timestamp, data } = event.detail;
+      
+      if (route === '/dscr-trend') {
+        setNavigationEvent({
+          sourceAppId,
+          timestamp: new Date(timestamp).toLocaleTimeString(),
+          referrer: data?.referrer || 'unknown',
+          action: data?.action || 'NAVIGATE'
+        });
+        
+        setNotification({
+          open: true,
+          message: `Navigated from ${sourceAppId || 'unknown'} app`,
+          severity: 'info'
+        });
+      }
+    };
+    
+    // Add event listener
+    window.addEventListener('sse-navigation', handleSSENavigation);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('sse-navigation', handleSSENavigation);
+    };
+  }, []);
+  
+  const handleCloseNotification = () => {
+    setNotification({ ...notification, open: false });
+  };
   
   // Handle tab click
   const handleTabClick = (index) => {
@@ -188,6 +226,22 @@ const DSCRTrendPage = () => {
       
       {/* Background placeholder */}
       <div className={styles.backgroundPlaceholder}></div>
+      
+      {/* Navigation info removed */}
+      
+      {/* SSE Status removed */}
+      
+      {/* Notification */}
+      <Snackbar 
+        open={notification.open} 
+        autoHideDuration={6000} 
+        onClose={handleCloseNotification}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
