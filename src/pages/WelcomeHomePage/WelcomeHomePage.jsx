@@ -112,41 +112,6 @@ const WelcomeHomePage = () => {
             <MoveDown className={styles.arrowIcon} />
           </motion.div>
         </motion.div>
-        <motion.button
-          whileHover={{ scale: 1.07, boxShadow: '0 4px 24px 0 rgba(255,153,0,0.25)' }}
-          whileTap={{ scale: 0.96 }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut', delay: 1.3 }}
-          style={{
-            position: 'fixed',
-            right: '48px',
-            bottom: '48px',
-            left: 'auto',
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '24.1px 48.2px',
-            gap: '14.22px',
-            width: '149.43px',
-            height: '60px',
-            background: 'linear-gradient(0deg, rgba(29, 29, 29, 0.2), rgba(29, 29, 29, 0.2)), #1D1D1D',
-            backgroundBlendMode: 'color-burn, plus-lighter',
-            boxShadow: 'inset 6.03px 6.03px 1px -7.03px rgba(255,255,255,0.5), inset 4.02px 4.02px 2.01px -4.02px #B3B3B3, inset -4.02px -4.02px 2.01px -4.02px #B3B3B3, inset 0px 0px 44.20px rgba(242,242,242,0.5)',
-            backdropFilter: 'blur(40.18px)',
-            borderRadius: '200.89px',
-            color: '#fff',
-            fontWeight: 600,
-            fontSize: 20,
-            border: 'none',
-            cursor: 'pointer',
-            zIndex: 30
-          }}
-          onClick={() => window.location.assign('/personal-welcome')}
-        >
-          Next
-        </motion.button>
       </main>
 
       <motion.video
