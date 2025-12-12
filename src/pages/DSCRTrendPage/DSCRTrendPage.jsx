@@ -167,17 +167,7 @@ const DSCRTrendPage = () => {
 
                
                 
-                <motion.div 
-                  className={styles.chartContainer}
-                  animate={{
-                    y: [0, -10, 0]
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: 'easeInOut'
-                  }}
-                >
+                <div className={styles.chartContainer}>
                   {/* Chart visualization */}
                   <div className={styles.chart}>
                     <motion.img 
@@ -193,12 +183,11 @@ const DSCRTrendPage = () => {
                         delay: 0.6
                       }}
                       whileHover={{ 
-                        scale: 1.03,
-                        filter: 'drop-shadow(0 0 20px rgba(50, 255, 255, 0.5))'
+                        scale: 1.03
                       }}
                     />
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
 
               {/* Right Column - Alert */}
@@ -206,51 +195,14 @@ const DSCRTrendPage = () => {
                 className={styles.alertColumn}
                 variants={sectionVariants}
               >
-                <motion.h2 
-                  className={styles.columnTitleAlert}
-                  animate={{
-                    color: ['#FF0000', '#FF6600', '#FF0000']
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'easeInOut'
-                  }}
-                >
+                <h2 className={styles.columnTitleAlert}>
                   Alert
-                </motion.h2>
-                <motion.div 
-                  className={styles.alertContainer}
-                  animate={{
-                    scale: [1, 1.05, 1],
-                    boxShadow: [
-                      '0 0 0 0 rgba(255, 0, 0, 0)',
-                      '0 0 30px 10px rgba(255, 0, 0, 0.3)',
-                      '0 0 0 0 rgba(255, 0, 0, 0)'
-                    ]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'easeInOut'
-                  }}
-                >
-                  <motion.img 
+                </h2>
+                <div className={styles.alertContainer}>
+                  <img 
                     src="/assets/alert.svg" 
                     alt="Alert Border" 
                     className={styles.alertBorderSvg}
-                    animate={{
-                      filter: [
-                        'drop-shadow(0 0 5px rgba(255, 0, 0, 0.3))',
-                        'drop-shadow(0 0 20px rgba(255, 0, 0, 0.6))',
-                        'drop-shadow(0 0 5px rgba(255, 0, 0, 0.3))'
-                      ]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: 'easeInOut'
-                    }}
                   />
                   <div className={styles.alertContent}>
                     <motion.div 
@@ -277,7 +229,7 @@ const DSCRTrendPage = () => {
                       Immediate attention required for corrective action planning.
                     </p>
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
             </div>
             
@@ -286,57 +238,23 @@ const DSCRTrendPage = () => {
               className={styles.highlightSection}
               variants={sectionVariants}
             >
-              <motion.h2 
-                className={styles.columnTitle}
-                animate={{
-                  textShadow: [
-                    '0 0 5px rgba(255, 230, 0, 0)',
-                    '0 0 20px rgba(255, 230, 0, 0.6)',
-                    '0 0 5px rgba(255, 230, 0, 0)'
-                  ]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'easeInOut'
-                }}
-              >
+              <h2 className={styles.columnTitle}>
                 Q3 Highlight
-              </motion.h2>
-              <motion.div 
-                className={styles.highlightContainer}
-                animate={{
-                  y: [0, -15, 0]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'easeInOut'
-                }}
-              >
+              </h2>
+              <div className={styles.highlightContainer}>
                 <motion.div 
                   className={styles.highlightIcon}
                   whileHover={{ 
                     scale: 1.15, 
-                    rotate: 5,
-                    filter: 'drop-shadow(0 0 30px rgba(255, 230, 0, 0.8))'
+                    rotate: 5
                   }}
                 >
-                  <motion.img 
+                  <img 
                     src="/assets/q3-highlight.svg" 
                     alt="Q3 Highlight"
-                    animate={{
-                      rotate: [0, 5, 0, -5, 0],
-                      scale: [1, 1.05, 1]
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: 'easeInOut'
-                    }}
                   />
                 </motion.div>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>

@@ -245,18 +245,14 @@ const CovenantMonitoringPage = () => {
                     src="/assets/ai-draft-doc.svg" 
                     alt="AI-Draft Document" 
                     className={styles.documentImage}
-                    animate={{
-                      y: [0, -12, 0],
-                      rotateZ: [0, 1, 0, -1, 0]
-                    }}
+               
                     transition={{
                       duration: 5,
                       repeat: Infinity,
                       ease: 'easeInOut'
                     }}
                     whileHover={{ 
-                      scale: 1.05,
-                      filter: 'drop-shadow(0 0 25px rgba(255, 230, 0, 0.5))'
+                      scale: 1.05
                     }}
                   />
                   <div className={styles.progressContainer}>
@@ -305,24 +301,16 @@ const CovenantMonitoringPage = () => {
                       animate={{ 
                         opacity: visibleMetrics.includes(index) ? 1 : 0,
                         scale: visibleMetrics.includes(index) ? 1 : 0.8,
-                        rotateY: visibleMetrics.includes(index) ? 0 : -90,
-                        y: visibleMetrics.includes(index) ? [0, -10, 0] : 0
+                        rotateY: visibleMetrics.includes(index) ? 0 : -90
                       }}
                       transition={{ 
                         duration: 0.6,
                         type: 'spring',
-                        stiffness: 100,
-                        y: {
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: 'easeInOut',
-                          delay: index * 0.2
-                        }
+                        stiffness: 100
                       }}
                       whileHover={{
                         scale: 1.05,
                         z: 50,
-                        boxShadow: '0 10px 40px rgba(255, 230, 0, 0.3)',
                         transition: { type: 'spring', stiffness: 300 }
                       }}
                     >

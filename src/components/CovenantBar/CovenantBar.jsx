@@ -79,18 +79,7 @@ const CovenantBar = ({ label, value, limit, isGood = true, percentage = 50 }) =>
             initial="hidden"
             animate={{
               width: `${percentage}%`,
-              opacity: 1,
-              boxShadow: isGood 
-                ? [
-                    '0 0 10px rgba(0, 255, 0, 0.3)',
-                    '0 0 20px rgba(0, 255, 0, 0.6)',
-                    '0 0 10px rgba(0, 255, 0, 0.3)'
-                  ]
-                : [
-                    '0 0 10px rgba(255, 0, 0, 0.3)',
-                    '0 0 20px rgba(255, 0, 0, 0.6)',
-                    '0 0 10px rgba(255, 0, 0, 0.3)'
-                  ]
+              opacity: 1
             }}
             transition={{
               width: {
@@ -101,11 +90,6 @@ const CovenantBar = ({ label, value, limit, isGood = true, percentage = 50 }) =>
               opacity: {
                 duration: 0.5,
                 ease: "easeIn"
-              },
-              boxShadow: {
-                duration: 2,
-                repeat: Infinity,
-                ease: 'easeInOut'
               }
             }}
           />

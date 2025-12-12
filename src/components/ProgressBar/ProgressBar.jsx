@@ -68,21 +68,7 @@ const ProgressBar = ({ percentage = 0, label = 'Progress' }) => {
         <motion.div 
           className={styles.progressBar} 
           initial={{ width: `${prevPercentage.current}%` }}
-          animate={{
-            ...controls,
-            boxShadow: [
-              '0 0 10px rgba(255, 230, 0, 0.3)',
-              '0 0 20px rgba(255, 230, 0, 0.6)',
-              '0 0 10px rgba(255, 230, 0, 0.3)'
-            ]
-          }}
-          transition={{
-            boxShadow: {
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut'
-            }
-          }}
+          animate={controls}
         ></motion.div>
       </motion.div>
     </motion.div>

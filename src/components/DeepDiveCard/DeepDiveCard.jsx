@@ -40,19 +40,6 @@ const DeepDiveCard = ({ title, value, position = 0, isVisible = false }) => {
     }
   };
 
-  const glowAnimation = {
-    boxShadow: [
-      '0 0 0 0 rgba(255, 230, 0, 0), 0 0 0 0 rgba(50, 255, 255, 0)',
-      '0 0 20px 5px rgba(255, 230, 0, 0.4), 0 0 15px 3px rgba(50, 255, 255, 0.3)',
-      '0 0 0 0 rgba(255, 230, 0, 0), 0 0 0 0 rgba(50, 255, 255, 0)'
-    ],
-    transition: {
-      duration: 2,
-      repeat: Infinity,
-      ease: 'easeInOut',
-      delay: position * 0.3
-    }
-  };
 
   return (
     <motion.div 
@@ -62,13 +49,11 @@ const DeepDiveCard = ({ title, value, position = 0, isVisible = false }) => {
       variants={cardVariants}
       whileHover={{ 
         scale: 1.05,
-        boxShadow: '0 0 30px 8px rgba(255, 230, 0, 0.6), 0 0 20px 5px rgba(50, 255, 255, 0.5)',
         transition: { type: 'spring', stiffness: 300, damping: 20 }
       }}
     >
       <motion.div 
         className={styles.card}
-        animate={isVisible ? glowAnimation : {}}
       >
         {/* SVG Background */}
         <svg className={styles.cardBorder} width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">

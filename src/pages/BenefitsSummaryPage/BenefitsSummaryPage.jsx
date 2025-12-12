@@ -113,50 +113,18 @@ const BenefitsSummaryPage = () => {
             className={styles.pageTitle}
             variants={titleVariants}
           >
-            <motion.h1
-              animate={{
-                textShadow: [
-                  '0 0 10px rgba(255, 230, 0, 0.3)',
-                  '0 0 30px rgba(255, 230, 0, 0.6)',
-                  '0 0 10px rgba(255, 230, 0, 0.3)'
-                ]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-            >
+            <h1>
               Benefits Summary of Smart Glasses + AI in Covenant Monitoring
-            </motion.h1>
-            <motion.p 
-              className={styles.pageDescription}
-              animate={{
-                opacity: [0.7, 1, 0.7]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-            >
+            </h1>
+            <p className={styles.pageDescription}>
               Description text here
-            </motion.p>
+            </p>
           </motion.div>
           
           {/* Benefits Summary SVG */}
           <motion.div 
             className={styles.benefitsContainer}
             variants={containerVariants}
-            animate={{
-              y: [0, -20, 0],
-              scale: [1, 1.02, 1]
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: 'easeInOut'
-            }}
           >
             <motion.img 
               src="/assets/benefitsummary.svg" 
@@ -166,27 +134,16 @@ const BenefitsSummaryPage = () => {
               animate={{ 
                 opacity: 1, 
                 scale: 1, 
-                rotateY: 0,
-                filter: [
-                  'drop-shadow(0 0 20px rgba(255, 230, 0, 0.3))',
-                  'drop-shadow(0 0 40px rgba(255, 230, 0, 0.6))',
-                  'drop-shadow(0 0 20px rgba(255, 230, 0, 0.3))'
-                ]
+                rotateY: 0
               }}
               transition={{ 
                 opacity: { duration: 1 },
                 scale: { duration: 1 },
-                rotateY: { type: 'spring', stiffness: 80, damping: 15 },
-                filter: {
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: 'easeInOut'
-                }
+                rotateY: { type: 'spring', stiffness: 80, damping: 15 }
               }}
               whileHover={{ 
                 scale: 1.05,
                 rotateY: 5,
-                filter: 'drop-shadow(0 0 50px rgba(255, 230, 0, 0.8))',
                 transition: { type: 'spring', stiffness: 300, damping: 20 }
               }}
             />
