@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Lottie from 'lottie-react';
 import { Header } from '../../components';
+import GradientBorderBox from '../../components/GradientBorderBox';
 import styles from './PersonalWelcomePage.module.css';
 
 /**
@@ -11,8 +13,22 @@ const PersonalWelcomePage = () => {
   // User data - in a real app, this would come from authentication/context
   const userData = {
     name: 'Julia',
-    avatar: `${process.env.PUBLIC_URL}/assets/Avatar.svg`,
   };
+  
+  // State to store the loaded animation data
+  const [animationData, setAnimationData] = useState(null);
+  
+  // Load the animation data
+  useEffect(() => {
+    // Path to the animation JSON file
+    const animationPath = `${process.env.PUBLIC_URL}/assets/Charater-2/Charater 2/Charater 2.json`;
+    
+    // Fetch the animation data
+    fetch(animationPath)
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
+      .catch(error => console.error('Error loading animation:', error));
+  }, []);
 
   // Animation variants for staggered animations
   const containerVariants = {
@@ -135,13 +151,22 @@ const PersonalWelcomePage = () => {
           animate="visible"
           variants={avatarVariants}
         >
-          <div className={styles.avatarFrame}>
-            <img 
-              src={userData.avatar} 
-              alt={`${userData.name}'s avatar`} 
-              className={styles.avatarImage}
-            />
-          </div>
+          <GradientBorderBox className={styles.avatarFrame} sx={{ height: '90%', width: '110%', overflow: 'hidden', background: 'transparent' }}>
+            {animationData ? (
+              <Lottie 
+                animationData={animationData}
+                loop={true}
+                autoplay={true}
+                className={styles.avatarImage}
+                style={{ display: 'block', height: '105%', width: '100%' }}
+                renderSettings={{
+                  preserveAspectRatio: 'xMidYMid slice'
+                }}
+              />
+            ) : (
+              <div className={styles.loadingAnimation}>Loading animation...</div>
+            )}
+          </GradientBorderBox>
         </motion.div>
       </main>
       
