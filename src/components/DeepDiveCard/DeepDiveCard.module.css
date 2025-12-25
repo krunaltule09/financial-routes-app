@@ -28,7 +28,7 @@
 
 .cardContent {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,24 +37,27 @@
   height: 100%;
   padding: 15px;
   color: #FFFFFF;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .cardTitle {
   font-family: 'EYInterstate', Arial, sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 18px;
   text-align: center;
   margin: 0 0 5px;
   color: #FFFFFF;
+  z-index: 11;
 }
 
 .cardValue {
   font-family: 'EYInterstate', Arial, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   text-align: center;
   color: #C4C4CD;
   margin: 0;
+  z-index: 11;
 }
 
 /* Responsive adjustments */

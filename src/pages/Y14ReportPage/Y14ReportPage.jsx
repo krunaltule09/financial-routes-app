@@ -253,7 +253,7 @@ const Y14ReportPage = () => {
                     >
                       <div className={styles.cardBorderWrapper}>
                         <img 
-                          src="/assets/y14-border.svg" 
+                          src="/assets/animated-svg/Q3GeneratedReport-UI-looped.svg" 
                           alt="" 
                           className={styles.cardBorderSvg} 
                         />
