@@ -63,6 +63,24 @@
   min-height: 280px;
 }
 
+.documentContainer {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.documentImage {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
 .animationContent {
   display: flex;
   flex-direction: column;
@@ -170,6 +188,15 @@
   .analysisText {
     margin: 10px 0 30px;
   }
+
+  .documentContainer {
+    max-width: 90%;
+    margin: 0 auto 30px;
+  }
+
+  .documentImage {
+    max-height: 600px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -188,5 +215,15 @@
   
   .sparkleIcon {
     margin-bottom: 10px;
+  }
+
+  .documentContainer {
+    max-width: 95%;
+    margin: 0 auto 20px;
+  }
+
+  .documentImage {
+    max-height: 500px;
+    border-radius: 12px;
   }
 }
