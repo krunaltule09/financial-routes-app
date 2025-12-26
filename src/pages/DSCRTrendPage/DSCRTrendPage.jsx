@@ -7,6 +7,7 @@ import { Snackbar, Alert } from '@mui/material';
 import lottie from 'lottie-web';
 import dscrTrendAnimation from '../../assets/animations/dscrTrendAnalysis.json';
 import errorAlertAnimation from '../../assets/animations/errorAlert.json';
+import { DSCRTrendSummary, Q3Highlight } from '../../components/DSCR';
 // SSE Status removed
 import styles from './DSCRTrendPage.module.css';
 
@@ -209,20 +210,18 @@ const DSCRTrendPage = () => {
           {/* Content Sections */}
           <div className={styles.contentSections}>
             <div className={styles.trendContainer}>
-              {/* Left Column - Trend Analysis */}
+              {/* Left Column - Trend Summary and Chart */}
               <motion.div 
                 className={styles.trendAnalysisColumn}
                 variants={sectionVariants}
               >
-
-               
+                {/* DSCR Trend Summary */}
+                <DSCRTrendSummary />
                 
+                {/* DSCR Trend Analysis Chart */}
                 <div className={styles.chartContainer}>
-                  {/* Chart visualization */}
-                  <div
-                    className={styles.chart}
-                    
-                  >
+                  <h2 className={styles.columnTitle}>DSCR Trend Analysis</h2>
+                  <div className={styles.chart}>
                     <div
                       ref={trendAnimationContainerRef}
                       className={styles.graphSvg}
@@ -233,69 +232,52 @@ const DSCRTrendPage = () => {
                 </div>
               </motion.div>
 
-              {/* Right Column - Alert */}
+              {/* Right Column - Alert and Q3 Highlight */}
               <motion.div 
                 className={styles.alertColumn}
                 variants={sectionVariants}
               >
-                <h2 className={styles.columnTitleAlert}>
-                  Alert
-                </h2>
-                <div className={styles.alertContainer}>
-                  <div
-                    ref={alertAnimationContainerRef}
-                    className={styles.alertBorderSvg}
-                    style={{ pointerEvents: 'none' }}
-                    aria-hidden
-                  />
-                  <div className={styles.alertContent}>
-                    <motion.div 
-                      className={styles.alertIconContainer}
-                      animate={{
-                        rotate: [0, -10, 10, -10, 10, 0],
-                        scale: [1, 1.1, 1]
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                        repeatDelay: 1
-                      }}
-                    >
-
-                    </motion.div>
-                    <h3 className={styles.alertTitle}>Potential breach detected - DSCR dropped below covenant level.</h3>
-                    <p className={styles.alertDescription}>
-                      Immediate attention required for corrective action planning.
-                    </p>
+                {/* Alert Section */}
+                <div className={styles.alertSection}>
+                  <h2 className={styles.columnTitleAlert}>
+                    Alert
+                  </h2>
+                  <div className={styles.alertContainer}>
+                    <div
+                      ref={alertAnimationContainerRef}
+                      className={styles.alertBorderSvg}
+                      style={{ pointerEvents: 'none' }}
+                      aria-hidden
+                    />
+                    <div className={styles.alertContent}>
+                      <motion.div 
+                        className={styles.alertIconContainer}
+                        animate={{
+                          rotate: [0, -10, 10, -10, 10, 0],
+                          scale: [1, 1.1, 1]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: 'easeInOut',
+                          repeatDelay: 1
+                        }}
+                      >
+                      </motion.div>
+                      <h3 className={styles.alertTitle}>Potential breach detected - DSCR dropped below covenant level.</h3>
+                      <p className={styles.alertDescription}>
+                        Immediate attention required for corrective action planning.
+                      </p>
+                    </div>
                   </div>
+                </div>
+                
+                {/* Q3 Highlight Section */}
+                <div className={styles.highlightSection}>
+                  <Q3Highlight />
                 </div>
               </motion.div>
             </div>
-            
-            {/* Q3 Highlight Section */}
-            <motion.div 
-              className={styles.highlightSection}
-              variants={sectionVariants}
-            >
-              <h2 className={styles.columnTitle}>
-                Q3 Highlight
-              </h2>
-              <div className={styles.highlightContainer}>
-                <motion.div 
-                  className={styles.highlightIcon}
-                  whileHover={{ 
-                    scale: 1.15, 
-                    rotate: 5
-                  }}
-                >
-                  <img 
-                    src="/assets/q3-highlight.svg" 
-                    alt="Q3 Highlight"
-                  />
-                </motion.div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </motion.main>
