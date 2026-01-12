@@ -103,7 +103,9 @@ const DSCRTrendPage = () => {
   
   // Handle tab click
   const handleTabClick = (index) => {
-    if (index === 1) { // Financial Statement Scan tab
+    if (index === 0) { // Welcome tab
+      navigate('/welcome');
+    } else if (index === 1) { // Financial Statement Scan tab
       navigate('/financial-statement');
     } else if (index === 3) { // Y-14 Report Generation tab
       navigate('/y14-report/large');

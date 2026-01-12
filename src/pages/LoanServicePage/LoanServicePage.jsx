@@ -169,30 +169,17 @@ const LoanServicePage = () => {
           Analysing
         </motion.div>
         
-        <motion.div 
-          className={styles.animationBox}
+        <motion.div
+          className={styles.documentContainer}
           variants={animationBoxVariants}
         >
-          <div className={styles.animationContent}>
-            <motion.div className={styles.animationHeader} variants={textItemVariants}>
-              <span>Animation plays →</span>
-            </motion.div>
-            <div className={styles.animationList}>
-              <motion.div className={styles.sparkleIconContainer} variants={sparkleVariants}>
-                <span className={styles.sparkleIcon}>✨</span>
-              </motion.div>
-              <ul>
-                <motion.li variants={textItemVariants}>A blue AR grid sweeps over a virtual loan document.</motion.li>
-                <motion.li variants={textItemVariants}>Text blocks illuminate and resolve into readable areas.</motion.li>
-                <motion.li variants={textItemVariants}>Detected keywords float onto the screen:</motion.li>
-                <motion.li className={styles.indentedItem} variants={textItemVariants}>"Loan Agreement Identified"</motion.li>
-                <motion.li className={styles.indentedItem} variants={textItemVariants}>"Covenants Found: 3"</motion.li>
-                <motion.li className={styles.indentedItem} variants={textItemVariants}>"Required FR Y-14 Fields: 11"</motion.li>
-                <motion.li className={styles.indentedItem} variants={textItemVariants}>"Document Integrity: 100% Verified"</motion.li>
-              </ul>
-            </div>
-          </div>
+          <img 
+            src="/loan-service-doc.svg" 
+            alt="Loan Service Document" 
+            className={styles.documentImage} 
+          />
         </motion.div>
+
       </motion.main>
       
       {/* Placeholder for future background */}

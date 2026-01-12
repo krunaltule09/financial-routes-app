@@ -56,7 +56,9 @@ const Y14ReportPage = () => {
   
   // Handle tab click
   const handleTabClick = (index) => {
-    if (index === 1) { // Financial Statement Scan tab
+    if (index === 0) { // Welcome tab
+      navigate('/welcome');
+    } else if (index === 1) { // Financial Statement Scan tab
       navigate('/financial-statement');
     } else if (index === 2) { // DSCR Trend tab
       navigate('/dscr-trend');

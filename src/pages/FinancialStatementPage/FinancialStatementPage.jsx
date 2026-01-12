@@ -78,7 +78,9 @@ const FinancialStatementPage = () => {
   
   // Handle tab click
   const handleTabClick = (index) => {
-    if (index === 1) {
+    if (index === 0) { // Welcome tab
+      navigate('/welcome');
+    } else if (index === 1) {
       // Already on this page, do nothing
     } else if (index === 3) { // Y-14 Report Generation tab
       navigate('/y14-report/large');
