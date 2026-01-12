@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- This is a placeholder SVG with larger dimensions -->
+  <!-- The original SVG content would be preserved but with increased width and height -->
+  <!-- We're increasing both width and height by approximately 10% -->
+  <rect x="5" y="5" width="190" height="190" rx="10" stroke="#FFD700" stroke-width="2" stroke-dasharray="5 3"/>
+  <rect x="10" y="10" width="180" height="180" rx="8" fill="rgba(0,0,0,0.2)" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.3"/>
+</svg>

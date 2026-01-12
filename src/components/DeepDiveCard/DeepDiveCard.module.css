@@ -1,8 +1,8 @@
 .cardContainer {
   position: relative;
   width: 100%;
-  max-width: 180px;
-  height: 180px;
+  max-width: 200px;
+  height: 200px;
   margin: 0;
 }
 
@@ -35,7 +35,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 15px;
+  padding: 20px;
   color: #FFFFFF;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
@@ -43,21 +43,25 @@
 .cardTitle {
   font-family: 'EYInterstate', Arial, sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
-  margin: 0 0 5px;
+  margin: 0 0 8px;
   color: #FFFFFF;
   z-index: 11;
+  max-width: 90%;
+  overflow-wrap: break-word;
 }
 
 .cardValue {
   font-family: 'EYInterstate', Arial, sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
   color: #C4C4CD;
   margin: 0;
   z-index: 11;
+  max-width: 90%;
+  overflow-wrap: break-word;
 }
 
 /* Responsive adjustments */

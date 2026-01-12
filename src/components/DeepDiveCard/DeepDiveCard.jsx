@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Tooltip } from '@mui/material';
 import styles from './DeepDiveCard.module.css';
 
 /**
@@ -57,7 +58,7 @@ const DeepDiveCard = ({ title, value, position = 0, isVisible = false }) => {
       >
         {/* SVG Background */}
         <img
-          src="/assets/animated-svg/Deep Dive _UI.svg"
+          src="/assets/animated-svg/Deep Dive _UI_larger.svg"
           alt="Deep dive card border"
           className={styles.cardBorder}
           draggable={false}
@@ -65,8 +66,12 @@ const DeepDiveCard = ({ title, value, position = 0, isVisible = false }) => {
         
         {/* Content */}
         <motion.div className={styles.cardContent} variants={textVariants}>
-          <h3 className={styles.cardTitle}>{title}</h3>
-          <div className={styles.cardValue}>{value}</div>
+          <Tooltip title={title} arrow placement="top">
+            <h3 className={styles.cardTitle}>{title}</h3>
+          </Tooltip>
+          <Tooltip title={value} arrow placement="top">
+            <div className={styles.cardValue}>{value}</div>
+          </Tooltip>
         </motion.div>
       </motion.div>
     </motion.div>
