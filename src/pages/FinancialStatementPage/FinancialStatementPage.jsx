@@ -6,7 +6,6 @@ import DeepDiveCard from '../../components/DeepDiveCard/DeepDiveCard';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import SidebarItem from '../../components/SidebarItem/SidebarItem';
 import CovenantBar from '../../components/CovenantBar/CovenantBar';
-import { Snackbar, Alert } from '@mui/material';
 // SSE Status removed
 import styles from './FinancialStatementPage.module.css';
 
@@ -16,7 +15,6 @@ import styles from './FinancialStatementPage.module.css';
 const FinancialStatementPage = () => {
   const navigate = useNavigate();
   const [navigationEvent, setNavigationEvent] = useState(null);
-  const [notification, setNotification] = useState({ open: false, message: '', severity: 'info' });
   
   // Listen for navigation events
   useEffect(() => {
@@ -34,12 +32,6 @@ const FinancialStatementPage = () => {
             documentId: data?.documentId || 'none',
             automatic: isAutoSync
           });
-          
-          setNotification({
-            open: true,
-            message: `Navigated from ${sourceAppId || 'unknown'} app`,
-            severity: 'info'
-          });
         }
         
         // Automatically set active tab to Financial Statement Scan (index 1)
@@ -56,9 +48,6 @@ const FinancialStatementPage = () => {
     };
   }, []);
   
-  const handleCloseNotification = () => {
-    setNotification({ ...notification, open: false });
-  };
   
   // Sample financial data
   const financialData = [
@@ -404,17 +393,6 @@ const FinancialStatementPage = () => {
       
       {/* SSE Status removed */}
       
-      {/* Notification */}
-      <Snackbar 
-        open={notification.open} 
-        autoHideDuration={6000} 
-        onClose={handleCloseNotification}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
-        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
-          {notification.message}
-        </Alert>
-      </Snackbar>
     </div>
   );
 };

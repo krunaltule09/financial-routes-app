@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components';
 import SidebarItem from '../../components/SidebarItem/SidebarItem';
-import { Snackbar, Alert } from '@mui/material';
 import lottie from 'lottie-web';
 import dscrTrendAnimation from '../../assets/animations/dscrTrendAnalysis.json';
 import errorAlertAnimation from '../../assets/animations/errorAlert.json';
@@ -65,7 +64,6 @@ const DSCRTrendPage = () => {
   const navigate = useNavigate();
   const [activeTabIndex, setActiveTabIndex] = useState(2); // Operational Docx Scan is active by default
   const [navigationEvent, setNavigationEvent] = useState(null);
-  const [notification, setNotification] = useState({ open: false, message: '', severity: 'info' });
   
   // Listen for navigation events
   useEffect(() => {
@@ -80,11 +78,6 @@ const DSCRTrendPage = () => {
           action: data?.action || 'NAVIGATE'
         });
         
-        setNotification({
-          open: true,
-          message: `Navigated from ${sourceAppId || 'unknown'} app`,
-          severity: 'info'
-        });
       }
     };
     
@@ -97,9 +90,6 @@ const DSCRTrendPage = () => {
     };
   }, []);
   
-  const handleCloseNotification = () => {
-    setNotification({ ...notification, open: false });
-  };
   
   // Handle tab click
   const handleTabClick = (index) => {
@@ -291,17 +281,6 @@ const DSCRTrendPage = () => {
       
       {/* SSE Status removed */}
       
-      {/* Notification */}
-      <Snackbar 
-        open={notification.open} 
-        autoHideDuration={6000} 
-        onClose={handleCloseNotification}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
-        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
-          {notification.message}
-        </Alert>
-      </Snackbar>
     </div>
   );
 };

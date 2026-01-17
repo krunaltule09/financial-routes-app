@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Header } from '../../components';
 import styles from './LoanServicePage.module.css';
 import OfferCard from '../../components/OfferCard/OfferCard';
-import { Snackbar, Alert } from '@mui/material';
 import SSEStatus from '../../components/SSEStatus';
 
 /**
@@ -12,7 +11,6 @@ import SSEStatus from '../../components/SSEStatus';
  */
 const LoanServicePage = () => {
   const [navigationEvent, setNavigationEvent] = useState(null);
-  const [notification, setNotification] = useState({ open: false, message: '', severity: 'info' });
   
   // Listen for navigation events
   useEffect(() => {
@@ -27,11 +25,6 @@ const LoanServicePage = () => {
           action: data?.action || 'NAVIGATE'
         });
         
-        setNotification({
-          open: true,
-          message: `Navigated from ${sourceAppId || 'unknown'} app`,
-          severity: 'info'
-        });
       }
     };
     
@@ -44,9 +37,6 @@ const LoanServicePage = () => {
     };
   }, []);
   
-  const handleCloseNotification = () => {
-    setNotification({ ...notification, open: false });
-  };
   
   // Animation variants
   const pageVariants = {
@@ -218,17 +208,6 @@ const LoanServicePage = () => {
         </div>
       )}
       
-      {/* Notification */}
-      <Snackbar 
-        open={notification.open} 
-        autoHideDuration={6000} 
-        onClose={handleCloseNotification}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
-        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
-          {notification.message}
-        </Alert>
-      </Snackbar>
     </div>
   );
 };

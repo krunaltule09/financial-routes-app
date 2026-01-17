@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components';
 import SidebarItem from '../../components/SidebarItem/SidebarItem';
-import { Snackbar, Alert } from '@mui/material';
 // SSE Status removed
 import styles from './Y14ReportPage.module.css';
 
@@ -13,7 +12,6 @@ import styles from './Y14ReportPage.module.css';
 const Y14ReportPage = () => {
   const navigate = useNavigate();
   const [navigationEvent, setNavigationEvent] = useState(null);
-  const [notification, setNotification] = useState({ open: false, message: '', severity: 'info' });
   
   // Listen for navigation events
   useEffect(() => {
@@ -28,11 +26,6 @@ const Y14ReportPage = () => {
           action: data?.action || 'NAVIGATE'
         });
         
-        setNotification({
-          open: true,
-          message: `Navigated from ${sourceAppId || 'unknown'} app`,
-          severity: 'info'
-        });
       }
     };
     
@@ -45,9 +38,6 @@ const Y14ReportPage = () => {
     };
   }, []);
   
-  const handleCloseNotification = () => {
-    setNotification({ ...notification, open: false });
-  };
   
   // State for progress and visible cards
   const [progress, setProgress] = useState(0);
@@ -280,17 +270,6 @@ const Y14ReportPage = () => {
       
       {/* SSE Status removed */}
       
-      {/* Notification */}
-      <Snackbar 
-        open={notification.open} 
-        autoHideDuration={6000} 
-        onClose={handleCloseNotification}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
-        <Alert onClose={handleCloseNotification} severity={notification.severity} sx={{ width: '100%' }}>
-          {notification.message}
-        </Alert>
-      </Snackbar>
     </div>
   );
 };
