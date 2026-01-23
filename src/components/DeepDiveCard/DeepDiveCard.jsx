@@ -58,7 +58,7 @@ const DeepDiveCard = ({ title, value, position = 0, isVisible = false }) => {
       >
         {/* SVG Background */}
         <img
-          src="/assets/animated-svg/Deep Dive _UI_larger.svg"
+          src="/assets/animated-svg/Deep Dive _UI.svg"
           alt="Deep dive card border"
           className={styles.cardBorder}
           draggable={false}
