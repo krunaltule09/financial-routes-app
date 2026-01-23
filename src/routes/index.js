@@ -10,6 +10,7 @@ import {
   LoanServicePage,
   WelcomeHomePage
 } from '../pages';
+import SSEDebugPage from '../pages/SSEDebugPage/SSEDebugPage';
 
 // Define routes configuration
 const routes = [
@@ -44,6 +45,10 @@ const routes = [
   {
     path: '/loan-service',
     element: <LoanServicePage />,
+  },
+  {
+    path: '/sse-debug',
+    element: <SSEDebugPage />,
   },
   {
     path: '/',
